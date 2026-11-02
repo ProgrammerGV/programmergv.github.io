@@ -47,17 +47,17 @@ Abra `http://127.0.0.1:5173`. Abrir o HTML diretamente como arquivo pode bloquea
 
 ## Publicação
 
-GitHub → Settings → Pages → Deploy from a branch → `main` → `/docs`.
+GitHub → Settings → Pages → Source: **GitHub Actions**. O workflow `Portfolio CI/CD` valida arquivos, dados dos projetos e sintaxe JavaScript; somente após aprovação publica a pasta `docs` pelo GitHub Pages. Pull requests executam a validação sem publicar.
 
 `.nojekyll` mantém a distribuição estática sem gerador de páginas. O workflow de verificação usa Python e bibliotecas padrão, sem instalar pacotes. Também é possível publicar a pasta `docs` em outro serviço de hospedagem estática, observando os termos e limites do provedor.
 
 ## Conteúdo e limites
 
-Os três projetos iniciais são Edital Inteligente, Rastreador de Editais e Ford. Imagens abstratas do rastreador e do Ford são identificadas como estruturas dos projetos; a imagem do Edital Inteligente é uma captura real.
+Os dois projetos em destaque são Edital Inteligente e Rastreador de Editais. O Ford foi retirado da vitrine. As imagens abstratas são identificadas como estruturas dos projetos; capturas reais estão disponíveis nos detalhes.
 
 As métricas de recuperação v1 do Edital Inteligente medem páginas, não respostas. A geração local v2 foi executada com Ollama e Llama 3.2 3B: 4/10 perguntas respondíveis atendidas corretamente e 6/6 casos ausentes recusados. A qualidade continua insuficiente para apresentar RAG completo; a busca é o modo principal e a geração é experimental. A avaliação é pequena e assistida por IA, sem revisão humana independente. Os relatórios, a origem do código e os limites estão no repositório do projeto.
 
-O vídeo é uma sequência de capturas reais, sem gravação contínua. Não há envio de mensagens automático: os botões de contato abrem o LinkedIn.
+O vídeo é uma sequência de capturas reais, sem gravação contínua. Os botões de contato abrem WhatsApp, LinkedIn ou o aplicativo de telefone; o envio da mensagem depende do visitante.
 
 ## Atualizar o currículo
 
