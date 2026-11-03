@@ -2,3 +2,6 @@
 .contact-actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px}.contact-grid .contact-phone{margin:18px 0 0;color:var(--muted)}.contact-phone a{color:var(--ink);text-decoration:none;white-space:nowrap}.contact-phone a:hover{text-decoration:underline}
 .hero-actions{flex-wrap:wrap}
 .project-links,.dialog-actions{flex-wrap:wrap;row-gap:12px}
+
+/* Keep the live application as the primary action, including without JavaScript. */
+.project-links{gap:16px 22px}.project-links .demo-button,.dialog-actions .demo-button{color:var(--dark);font-size:12px;padding:11px 16px;min-height:44px}.project-links .demo-button:hover,.dialog-actions .demo-button:hover{color:var(--dark)}.project-links .case-button,.project-links>a:not(.demo-button){min-height:44px;display:inline-flex;align-items:center}.project-fallback{display:block}.project-fallback .project-info{min-height:230px}.filter-row[hidden]{display:none}

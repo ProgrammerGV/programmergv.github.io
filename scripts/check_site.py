@@ -15,11 +15,14 @@ class SiteParser(HTMLParser):
         self.ids = []
         self.anchors = []
         self.assets = []
+        self.links = []
 
     def handle_starttag(self, tag, attrs):
         attr = dict(attrs)
         if 'id' in attr:
             self.ids.append(attr['id'])
+        if tag == 'a' and attr.get('href'):
+            self.links.append(attr['href'])
         if tag == 'a' and attr.get('href', '').startswith('#'):
             self.anchors.append(attr['href'][1:])
         if tag in ('script', 'img') and attr.get('src'):
@@ -49,6 +52,9 @@ def check():
         assert isinstance(project['tags'], list) and project['tags'], 'Informe tecnologias.'
         assert project['filters'] and set(project['filters']) <= {'ia', 'automacao', 'web'}
         assert urlparse(project['repository']).scheme == 'https'
+        if project.get('demo_url'):
+            assert urlparse(project['demo_url']).scheme == 'https'
+            assert project['demo_url'] in page.links, 'Aplicação sem acesso direto no HTML.'
         for key in ('image', 'video'):
             if project.get(key):
                 path = (SITE / project[key]).resolve()

@@ -30,7 +30,7 @@
     "video": "assets/edital-demo.mp4",
     "video_caption": "Geração experimental: exemplos de desenvolvimento em sequência de capturas reais, sem gravação contínua. No teste reservado, 4/10 respostas corretas; seis casos sem resposta recusados.",
     "demo_url": "https://programmergv-edital-inteligente.onrender.com/",
-    "demo_label": "Acessar aplicação ↗"
+    "demo_label": "Abrir aplicativo ↗"
   },
   {
     "id": "rastreador-editais",
@@ -56,7 +56,7 @@
     "limits": "A demonstração pública usa duas fontes fixas e varredura manual, com integrações externas desativadas. O histórico pode reiniciar quando o servidor gratuito reiniciar. A coleta depende da disponibilidade e estrutura dos sites de origem.",
     "learning": "Separar coleta, processamento e armazenamento facilita evoluir o rastreador para novas formas de consulta.",
     "demo_url": "https://inf032-programa-o-python.onrender.com/",
-    "demo_label": "Acessar aplicação ↗",
+    "demo_label": "Abrir aplicativo ↗",
     "image": "assets/rastreador-online.png",
     "image_alt": "Painel público do Rastreador com duas fontes oficiais e resultados de uma varredura real."
   }
