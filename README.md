@@ -28,7 +28,7 @@ O site é independente de ChatGPT/Codex depois de publicado: visitantes não pre
 ```
 
 3. Para detalhar o estudo de caso, acrescente `problem`, `approach`, `evidence`, `limits` e `learning`.
-4. Para usar uma captura real, envie o arquivo para `docs/assets/` e acrescente `image` (`assets/arquivo.png`), `image_alt` e `visual` (`edital`, para o estilo de captura). Sem imagem, deixe o padrão `generic`.
+4. Para usar uma captura real, envie o arquivo para `docs/assets/` e acrescente `image` (`assets/arquivo.png`), `image_alt` e `visual` (`screenshot`, para o estilo de captura). Sem imagem, deixe o padrão `generic`.
 5. Os filtros aceitos são `ia`, `automacao` e `web`. Um projeto pode aparecer em mais de um.
 6. Salve em `main`. O GitHub Pages atualizará a publicação; a disponibilidade pode levar alguns minutos.
 
@@ -53,7 +53,7 @@ GitHub → Settings → Pages → Source: **GitHub Actions**. O workflow `Portfo
 
 ## Conteúdo e limites
 
-Os dois projetos em destaque são Edital Inteligente e Rastreador de Editais. O Ford foi retirado da vitrine. As imagens abstratas são identificadas como estruturas dos projetos; capturas reais estão disponíveis nos detalhes.
+A vitrine reúne Edital Inteligente, Rastreador de Editais e SiteWatch AI. Os detalhes de cada projeto mostram o contexto e as evidências. O SiteWatch AI é apresentado com uma captura do painel e um estudo de caso, com instruções de execução local no repositório.
 
 As métricas de recuperação v1 do Edital Inteligente medem páginas, não respostas. A geração local v2 foi executada com Ollama e Llama 3.2 3B: 4/10 perguntas respondíveis atendidas corretamente e 6/6 casos ausentes recusados. A qualidade continua insuficiente para apresentar RAG completo; a busca é o modo principal e a geração é experimental. A avaliação é pequena e assistida por IA, sem revisão humana independente. Os relatórios, a origem do código e os limites estão no repositório do projeto.
 
@@ -65,4 +65,4 @@ Substitua `docs/assets/curriculo-gabriel-vinicius.pdf` pela versão atualizada m
 
 ## Aplicações online
 
-O campo opcional `demo_url` em `docs/projects.json` adiciona um link de acesso ao projeto. `demo_label` define o texto do botão. Inclua somente endereços publicados e verificados. Os dois projetos em destaque têm endereços públicos verificados no Render Free. `render.yaml` registra a configuração dos serviços existentes. Os servidores gratuitos podem entrar em repouso e demorar no primeiro acesso.
+O campo opcional `demo_url` em `docs/projects.json` adiciona um link de acesso ao projeto. `demo_label` define o texto do botão. Inclua somente endereços publicados e verificados. Edital Inteligente e Rastreador de Editais têm endereços públicos no Render Free. `render.yaml` registra a configuração desses serviços. Os servidores gratuitos podem entrar em repouso e demorar no primeiro acesso.

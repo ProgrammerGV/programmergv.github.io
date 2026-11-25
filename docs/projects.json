@@ -59,5 +59,36 @@
     "demo_label": "Abrir aplicativo ↗",
     "image": "assets/rastreador-online.png",
     "image_alt": "Painel público do Rastreador com duas fontes oficiais e resultados de uma varredura real."
+  },
+  {
+    "id": "sitewatch-ai",
+    "number": "03",
+    "title": "SiteWatch AI",
+    "category": "IA APLICADA / VISÃO COMPUTACIONAL",
+    "filters": [
+      "ia",
+      "web"
+    ],
+    "year": "2026",
+    "visual": "screenshot",
+    "description": "Painel local que diferencia movimento de presença humana em vídeo e organiza ocorrências com evidências para revisão.",
+    "tags": [
+      "Python",
+      "OpenCV",
+      "YOLO26n",
+      "FastAPI",
+      "React",
+      "TypeScript",
+      "PostgreSQL"
+    ],
+    "repository": "https://github.com/ProgrammerGV/sitewatch-ai",
+    "article": "https://github.com/ProgrammerGV/sitewatch-ai/blob/main/docs/ESTUDO-DE-CASO.md",
+    "image": "assets/sitewatch-ai-dashboard.jpg",
+    "image_alt": "Painel do SiteWatch AI em espera, com contagem de pessoas, estado do movimento, controles da câmera e saúde da sessão.",
+    "problem": "Um sinal de movimento pode vir de um objeto, e uma pessoa parada pode passar despercebida por um sensor de movimento. A revisão precisa reunir a classificação e as evidências da cena.",
+    "approach": "OpenCV analisa o movimento e YOLO26n detecta pessoas na região configurada. O sistema agrupa os sinais em ocorrências, grava imagens representativas no disco e mantém o histórico e a revisão humana em PostgreSQL.",
+    "evidence": "Em um replay controlado, o modelo em CPU processou 91 quadros a 2,66 análises por segundo. O sistema encerrou duas ocorrências: movimento de um retângulo sem pessoa detectada e presença detectada em uma imagem estática com pessoas. Um teste com webcam percorreu o painel e registrou uma revisão.",
+    "limits": "Protótipo de execução local com uma fonte de vídeo e uma sessão por vez. Precisão, recall e impacto sobre falsos alarmes ainda precisam de testes com imagens representativas.",
+    "learning": "Separar captura, detecção, regras e armazenamento tornou possível testar a classificação e as falhas com dados sintéticos. O estado inconclusivo preserva a diferença entre cobertura insuficiente e uma análise sem presença confirmada."
   }
 ]

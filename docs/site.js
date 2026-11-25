@@ -8,12 +8,13 @@ function element(tag,text,className){const item=document.createElement(tag);if(t
 function externalLink(text,url){const link=element('a',text);link.href=url;link.target='_blank';link.rel='noopener noreferrer';return link;}
 function demoLink(project){const link=externalLink(project.demo_label||'Abrir aplicativo ↗',project.demo_url);link.className='button primary demo-button';link.setAttribute('aria-label',`Abrir ${project.title} (nova aba)`);return link;}
 function renderVisual(project){
+  const hasScreenshot=project.image&&(project.visual==='edital'||project.visual==='screenshot');
   const art=element('div',undefined,`project-visual visual-${project.visual}`);
-  art.append(element('span',project.visual==='edital'?'CAPTURA DA APLICAÇÃO':'ESTRUTURA DO PROJETO','visual-label'));
-  if(project.visual==='edital'){
+  art.append(element('span',hasScreenshot?'CAPTURA DA APLICAÇÃO':'ESTRUTURA DO PROJETO','visual-label'));
+  if(hasScreenshot){
     const browser=element('div',undefined,'browser-mock');const bar=element('div',undefined,'mock-bar');
     for(let i=0;i<3;i++)bar.append(element('i'));bar.setAttribute('aria-hidden','true');
-    const image=element('img');image.src=project.image;image.alt=project.image_alt;image.loading='lazy';image.width=1265;image.height=712;browser.append(bar,image);art.append(browser);
+    const image=element('img');image.src=project.image;image.alt=project.image_alt;image.loading='lazy';browser.append(bar,image);art.append(browser);
   }else if(project.visual==='rastreador'){
     const view=element('div',undefined,'tracker-view');const header=element('div',undefined,'tracker-header');header.append(element('span','rastreador / pipeline'),element('span','PYTHON'));view.append(header);
     for(const [name,label] of [['Coletar páginas','01'],['Filtrar publicações','02'],['Registrar novidades','03']]){const row=element('div',undefined,'tracker-row');row.append(element('span',name),element('b',label));view.append(row);}view.append(element('p','Coleta → processamento → histórico','tracker-caption'));art.append(view);
@@ -48,5 +49,5 @@ document.getElementById('dialog-close').addEventListener('click',()=>dialog.clos
 dialog.addEventListener('click',event=>{if(event.target===dialog){const rect=dialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)dialog.close();}});
 dialog.addEventListener('close',()=>{const video=dialog.querySelector('video');if(video)video.pause();document.body.classList.remove('dialog-open');if(lastTrigger&&lastTrigger.isConnected)lastTrigger.focus();});
 document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(other=>{const selected=other===button;other.classList.toggle('active',selected);other.setAttribute('aria-pressed',String(selected));});renderProjects(button.dataset.filter);}));
-async function loadProjects(){try{const response=await fetch('projects.json',{cache:'no-store'});if(!response.ok)throw new Error('Não foi possível carregar os projetos.');projects=(await response.json()).map((project,index)=>({number:String(index+1).padStart(2,'0'),year:'',visual:'generic',problem:'Contexto em documentação no repositório.',approach:'Confira a implementação e as instruções no GitHub.',evidence:'Código disponível para consulta.',limits:'Consulte o estado atual e as limitações no repositório.',learning:'Decisões documentadas no projeto.',...project}));renderProjects();document.querySelector('[data-filter=all] span').textContent=String(projects.length).padStart(2,'0');}catch(error){document.querySelector('.filter-row').hidden=true;}}
+async function loadProjects(){try{const response=await fetch('projects.json',{cache:'no-store'});if(!response.ok)throw new Error('Não foi possível carregar os projetos.');projects=(await response.json()).map((project,index)=>({number:String(index+1).padStart(2,'0'),year:'',visual:'generic',problem:'Contexto em documentação no repositório.',approach:'Confira a implementação e as instruções no GitHub.',evidence:'Código disponível para consulta.',limits:'Consulte o estado atual e as limitações no repositório.',learning:'Decisões documentadas no projeto.',...project}));renderProjects();document.querySelector('[data-filter=all] span').textContent=String(projects.length).padStart(2,'0');const target=document.getElementById(location.hash.slice(1));if(target?.matches('.project'))target.scrollIntoView({behavior:'instant'});}catch(error){document.querySelector('.filter-row').hidden=true;}}
 loadProjects();
